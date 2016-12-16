@@ -1,0 +1,64 @@
+{
+  "name": "littlewebsite",
+  "version": "1.0.1",
+  "description": "Small demo site",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test -u bdd -R spec",
+    "start": "node index.js",
+    "start:dev": "echo \"Running start:dev script\"",
+    "lint": "jshint *.js **/*.js",
+    "pretest": "npm run compile && npm run lint",
+    "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
+    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
+    "compile": "npm run compile:coffee && npm run compile:ts",
+    "precompile": "npm run clean",
+    "clean": "rimraf lib/*",
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
+    "build:clean": "rimraf public/css/*, public/js/*",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:less && npm run build:bundle",
+    "watch:test": "npm run test -- --watch -R min",
+    "watch:lint": "watch 'npm run lint' .",
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    "watch:coffee": "coffee --compile -w --output ./lib ./src/coffeescripts",
+    "watch:ts": "tsc -w --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
+    "watch:bundle": "watchify ./client/js/app.js -o ./public/js/bundle.js -dv",
+    "watch:bundleWatcher": "watch 'npm run build:bundle' client",
+    "watch:browser": "live-reload --port 9091 public/",
+    "watch": "npm run watch:test & npm run watch:bundle & npm run watch:server & npm run watch:browser",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
+  },
+  "jshintConfig": {
+    "esnext": "true",
+    "noyield": "true"
+  },
+  "keywords": [
+    "npm",
+    "scripting"
+  ],
+  "author": "Heloá Meneses @dev_she",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "coffee-script": "^1.12.1",
+    "jshint": "^2.9.4",
+    "less": "^2.7.1",
+    "live-reload": "^1.1.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "rimraf": "^2.5.4",
+    "should": "^11.1.2",
+    "supertest": "^2.0.1",
+    "typescript": "^2.1.4",
+    "uglifyjs": "^2.4.10",
+    "watch": "^1.0.1",
+    "watchify": "^3.8.0"
+  },
+  "dependencies": {
+    "koa": "^1.2.4"
+  }
+}
