@@ -60,5 +60,9 @@
   },
   "dependencies": {
     "koa": "^1.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
   }
 }
