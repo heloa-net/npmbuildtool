@@ -37,6 +37,9 @@
     "launch:prod:windows": "start https://little-website.herokuapp.com/",
     "push": "npm run push:origin && npm run push:heroku",
     "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
+    "deploy:prod:time" : "time(npm run deploy:prod)",
+    "deploy:prod:script" : "bash ./deployProd.sh",
+    "deploy:prod:script:windows" : "bash ./deployProd.sh",
     "test:deploy": "npm t -- -R dot"
   },
   "engines": {
