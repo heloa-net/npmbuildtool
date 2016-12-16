@@ -1,6 +1,6 @@
 {
   "name": "littlewebsite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Small demo site",
   "main": "index.js",
   "scripts": {
