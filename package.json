@@ -1,6 +1,6 @@
 {
   "name": "littlewebsite",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Small demo site",
   "main": "index.js",
   "scripts": {
@@ -33,10 +33,10 @@
     "version:patch": "npm version patch",
     "push:origin": "git push --tags origin HEAD:master",
     "push:heroku": "git push heroku master",
-    "launch:prod" : "heroku open",
-    "launch:prod:windows" : "start https://little-website.herokuapp.com/",
-    "deploy:prod" : "npm run test:deploy -s && npm run build -s && npm run version:patch",
-    "test:deploy" : "npm t -- -R dot"
+    "launch:prod": "heroku open",
+    "launch:prod:windows": "start https://little-website.herokuapp.com/",
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch",
+    "test:deploy": "npm t -- -R dot"
   },
   "engines": {
     "node": "~7.2.0",
