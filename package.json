@@ -1,6 +1,6 @@
 {
   "name": "littlewebsite",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Small demo site",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "push:heroku": "git push heroku master",
     "launch:prod": "heroku open",
     "launch:prod:windows": "start https://little-website.herokuapp.com/",
-    "push" : "npm run push:origin && npm run push:heroku",
+    "push": "npm run push:origin && npm run push:heroku",
     "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
     "test:deploy": "npm t -- -R dot"
   },
