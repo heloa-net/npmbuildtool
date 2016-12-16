@@ -32,7 +32,11 @@
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
     "push:origin": "git push --tags origin HEAD:master",
-    "push:heroku": "git push heroku master"
+    "push:heroku": "git push heroku master",
+    "launch:prod" : "heroku open",
+    "launch:prod:windows" : "start https://little-website.herokuapp.com/",
+    "deploy:prod" : "npm run test:deploy -s && npm run build -s && npm run version:patch",
+    "test:deploy" : "npm t -- -R dot"
   },
   "engines": {
     "node": "~7.2.0",
